@@ -8,7 +8,7 @@ function Book (title, author, id, pages, status) {
     this.pages = pages;
     this.status = status;
     this.info = function() {
-        return `${this.title},${this.author},s/n: ${this.id},${this.pages} pages,${this.status}`;
+        return `${this.title},by ${this.author},s/n: ${this.id},pages: ${this.pages},${this.status}`;
     };
 };
 
@@ -37,13 +37,16 @@ function displayBooks(libraryArr) {
     }
     container.appendChild(card);
 
-    /* Toggling read and unread */
+    /* Toggling read and unread + remove */
     const allCard = document.querySelectorAll(".bookcard")
     const currStatus = document.querySelector("div p:last-child");
     const toggleBtn = document.createElement("button");
     toggleBtn.classList.add("toggle");
     toggleBtn.style.color = "white";
     toggleBtn.style.fontSize = "1rem";
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove");
+    removeBtn.textContent = "remove";
     if (currStatus.textContent === "read") {
         currStatus.style.color = "green";
         toggleBtn.textContent = "unread";
@@ -56,7 +59,10 @@ function displayBooks(libraryArr) {
     }
     allCard.forEach(eachCard => {
         eachCard.appendChild(toggleBtn);
+        eachCard.appendChild(removeBtn);
     })
+
+    /* when toggle button is clicked */
     toggleBtn.addEventListener("click", () => {
         if (currStatus.textContent === "read") {
             currStatus.textContent = "unread";
@@ -71,6 +77,10 @@ function displayBooks(libraryArr) {
             toggleBtn.style.backgroundColor = "red";
         };
     });
+    /* When remove button is clicked */
+    removeBtn.addEventListener("click", () => {
+        container.removeChild(card);
+    })
 };
 
 function resetDialog() {

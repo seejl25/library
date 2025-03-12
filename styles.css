@@ -2,28 +2,67 @@ body {
     background-color: bisque;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    text-align: center;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 1fr;
     gap: 15px;
     margin: 2rem;
+}
+
+.credits {
+    font-size: 12px;
+    position: absolute;
+    left: 2%;
+    top: 0%;
+}
+
+a {
+    color: black;
+}
+
+img {
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 20%;
+    z-index: -1;
+}
+
+#add {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+}
+
+h2 {
+    margin-top: 3rem;
+    text-decoration: underline;
 }
 
 .bookcard {
     background-color: white;
     white-space: pre;
     padding: 1rem;
+    border-radius: 16px;
 }
 
 .bookcard p:first-child {
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: bold;
+}
+
+.toggle, .remove {
+    margin-left: 1rem;
 }
 
 div p {
     margin: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
