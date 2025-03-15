@@ -1,16 +1,30 @@
 /* Library array to store books data */
 const myLibrary = [];
 
-function Book (title, author, id, pages, status) {
-    this.title = title;
-    this.author = author;
-    this.id = id;
-    this.pages = pages;
-    this.status = status;
-    this.info = function() {
+// function Book (title, author, id, pages, status) {
+//     this.title = title;
+//     this.author = author;
+//     this.id = id;
+//     this.pages = pages;
+//     this.status = status;
+//     this.info = function() {
+//         return `${this.title},by ${this.author},s/n: ${this.id},pages: ${this.pages},${this.status}`;
+//     };
+// };
+
+class Book {
+    constructor(title, author, id, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.id = id;
+        this.pages = pages;
+        this.status = status;
+    }
+
+    info() {
         return `${this.title},by ${this.author},s/n: ${this.id},pages: ${this.pages},${this.status}`;
-    };
-};
+    }
+}
 
 /* Functions */
 function AddBookToLibrary () {
